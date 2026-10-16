@@ -28,53 +28,54 @@
 // PrintStudentCard("Егор", 18, "ИСП-251");
 // PrintStudentCard("Валерия", 17, "ИСП-252");
 
-// //Шаг 3. Метод, возвращающий значение
-// double CalculateScholarchip(double baseAmount, double bonusPersent){
-//     return baseAmount + baseAmount * bonusPersent / 100;
-// }
-// bool IsEligibleForBonus(double averageGrade){
-//     return averageGrade >= 4.5;
-// }
-// double a = 2000;
-// double studentaverageGrade = 4.7;
-// double result = 0;
-// if (IsEligibleForBonus(studentaverageGrade)){
-//     result = CalculateScholarchip(a, 15);
-//     Console.WriteLine($"Стипендия с надбавкой: {result}");
-// }
-// else{
-//     result = CalculateScholarchip(a, 0);
-//     Console.WriteLine($"Надбавки нет: {result}");
-// }
+//Шаг 3. Метод, возвращающий значение
+double CalculateScholarchip(double baseAmount, double bonusPersent){
+    return baseAmount + baseAmount * bonusPersent / 100;
+}
+bool IsEligibleForBonus(double averageGrade){
+    return averageGrade >= 4.5;
+}
+double a = 2000;
+double studentaverageGrade = 4.7;
+double result = 0;
+if (IsEligibleForBonus(studentaverageGrade)){
+    result = CalculateScholarchip(a, 15);
+    Console.WriteLine($"Стипендия с надбавкой: {result}");
+}
+else{
+    result = CalculateScholarchip(a, 0);
+    Console.WriteLine($"Надбавки нет: {result}");
+}
 
-// //Шаг 4. Массив как параметр
-// double CalculateAverageGrade(int[] grades)
-// {
-//     int sum = 0;
-//     foreach (int grade in grades)
-//     {
-//         sum += grade;
-//     }
-//     return (double)sum / grades.Length;
-// }
+//Шаг 4. Массив как параметр
+Console.WriteLine();
+double CalculateAverageGrade(int[] grades)
+{
+    int sum = 0;
+    foreach (int grade in grades)
+    {
+        sum += grade;
+    }
+    return (double)sum / grades.Length;
+}
 
-// int CountFives(int[] grades){
-//     int count = 0;
-//     foreach (int grade in grades)
-//     {
-//         if (grade == 5)
-//         {
-//             count++;
-//         }
-//     }
-//     return count;
-// }
+int CountFives(int[] grades){
+    int count = 0;
+    foreach (int grade in grades)
+    {
+        if (grade == 5)
+        {
+            count++;
+        }
+    }
+    return count;
+}
 
-// int[] grades = { 4, 5, 3, 5, 4 };
-// double average = CalculateAverageGrade(grades);
-// int counts = CountFives(grades);
-// Console.WriteLine(average);
-// Console.WriteLine(counts);
+int[] grades = { 4, 5, 3, 5, 4 };
+double average = CalculateAverageGrade(grades);
+int counts = CountFives(grades);
+Console.WriteLine(average);
+Console.WriteLine(counts);
 
 //Шаг 5. Знакомство с перегрузкой методов
 // class Program
@@ -110,10 +111,47 @@
 // Console.WriteLine("12");
 
 
-Console.WriteLine("Задача Б");
-void PrintPerson(string name, int age){
-    Console.WriteLine($"Имя: {name}, Возраст: {age} лет");
-}
-PrintPerson("Егор", 18);
-PrintPerson("Валерия", 17);
-PrintPerson("Алена", 17);
+// Console.WriteLine("Задача Б");
+// void PrintPerson(string name, int age){
+//     Console.WriteLine($"Имя: {name}, Возраст: {age} лет");
+// }
+// PrintPerson("Егор", 18);
+// PrintPerson("Валерия", 17);
+// PrintPerson("Алена", 17);
+
+//Индивидуальный вариант ★★
+// Console.Write("Введите свою фамилию: ");
+// string surname = Console.ReadLine()!.Trim();
+// if (string.IsNullOrEmpty(surname)) {
+// Console.WriteLine("Фамилия не введена. Завершение работы.");
+// return;
+// }
+// Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+// var assigned = Enumerable.Range(1, 10)
+// .OrderBy(_ => rnd.Next())
+// .Take(2)
+// .OrderBy(x => x)
+// .ToList();
+// Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+// Console.WriteLine("Вариант 2");
+// double CalculateArea(double width, double height){
+//     return width * height;
+// } 
+
+// double result = CalculateArea(5.5, 7.5);
+// Console.WriteLine($"Площадь прямоугольника: {result}");
+
+// Console.WriteLine();
+// Console.WriteLine("Вариант 9");
+// bool ContainsValue(int[] numbers, int target){
+//     foreach (int i in numbers){
+//         if (i == target){
+//             return true;
+//         } 
+//     } return false;
+// } 
+// int[] numbers = {1, 3, 5, 8, 67, 12};
+// int target = 8;
+// bool res = ContainsValue(numbers, target);
+// Console.WriteLine($"Содержится ли {target} в массиве: {res}");
