@@ -1,4 +1,6 @@
 ﻿//Шаг 1. Метод без параметров
+using System.Runtime.Serialization;
+
 PrintHeader();
 PrintHeader();
 Console.WriteLine("Основная часть программа");
@@ -25,3 +27,51 @@ void PrintStudentCard(string name, int age, string group)
 
 PrintStudentCard("Егор", 18, "ИСП-251");
 PrintStudentCard("Валерия", 17, "ИСП-252");
+
+//Шаг 3. Метод, возвращающий значение
+double CalculateScholarchip(double baseAmount, double bonusPersent){
+    return baseAmount + baseAmount * bonusPersent / 100;
+}
+bool IsEligibleForBonus(double averageGrade){
+    return averageGrade >= 4.5;
+}
+double a = 2000;
+double studentaverageGrade = 4.7;
+double result = 0;
+if (IsEligibleForBonus(studentaverageGrade)){
+    result = CalculateScholarchip(a, 15);
+    Console.WriteLine($"Стипендия с надбавкой: {result}");
+}
+else{
+    result = CalculateScholarchip(a, 0);
+    Console.WriteLine($"Надбавки нет: {result}");
+}
+
+//Шаг 4. Массив как параметр
+double CalculateAverageGrade(int[] grades)
+{
+    int sum = 0;
+    foreach (int grade in grades)
+    {
+        sum += grade;
+    }
+    return (double)sum / grades.Length;
+}
+
+int CountFives(int[] grades){
+    int count = 0;
+    foreach (int grade in grades)
+    {
+        if (grade == 5)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int[] grades = { 4, 5, 3, 5, 4 };
+double average = CalculateAverageGrade(grades);
+int counts = CountFives(grades);
+Console.WriteLine(average);
+Console.WriteLine(counts);
